@@ -8,7 +8,7 @@ Disallow unknown type selectors.
  * This type selector */
 ```
 
-This rule considers tags defined in the HTML and SVG Specifications to be known.
+This rule considers tags which are valid custom elements and those defined in the following Specifications to be known: HTML and SVG.
 
 ## Options
 
@@ -40,7 +40,7 @@ li > a {}
 
 ## Optional secondary options
 
-### `ignore: ["default-namespace"]`
+### `ignore: ["default-namespace", "custom-elements"]`
 
 #### `"default-namespace"`
 
@@ -56,6 +56,26 @@ The following patterns are *not* considered warnings:
 
 ```css
 unknown {}
+```
+
+#### `"custom-elements"`
+
+Allow custom elements.
+
+The following patterns are considered warnings:
+
+```css
+unknown {}
+```
+
+```css
+x-Foo {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+x-foo {}
 ```
 
 ### `ignoreNamespaces: ["/regex/", "string"]`
